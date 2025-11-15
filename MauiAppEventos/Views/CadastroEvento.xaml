@@ -1,0 +1,137 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.CadastroEvento"
+             BackgroundColor="LightBlue">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Título -->
+            <Label Text="Cadastro de Evento"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black" />
+
+            <!-- Nome do Evento -->
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Nome do Evento" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry Placeholder="Digite o nome do evento"
+                           Text="{Binding Nome}"
+                           BackgroundColor="White"
+                           HeightRequest="45" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Datas -->
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15">
+                        <Label Text="Data Inicial"
+                               Grid.Row="0" Grid.Column="0"
+                               FontAttributes="Bold"
+                               TextColor="Black" />
+                        <Label Text="Data Final"
+                               Grid.Row="0" Grid.Column="1"
+                               FontAttributes="Bold"
+                               TextColor="Black" />
+                        <DatePicker x:Name="dtpck_inicio"
+                                    Date="{Binding DataInicio}"
+                                    Format="dd/MM/yyyy"
+                                    Grid.Row="1" Grid.Column="0"
+                                    HeightRequest="45"
+                                    BackgroundColor="White" />
+                        <DatePicker x:Name="dtpck_termino"
+                                    Date="{Binding DataTermino}"
+                                    Format="dd/MM/yyyy"
+                                    Grid.Row="1" Grid.Column="1"
+                                    HeightRequest="45"
+                                    BackgroundColor="White" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Número de Participantes -->
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Número de Participantes" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry Placeholder="Digite o número de participantes"
+                           Keyboard="Numeric"
+                           Text="{Binding NumeroParticipantes}"
+                           BackgroundColor="White"
+                           HeightRequest="45" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Local do Evento -->
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Local do Evento" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry Placeholder="Digite o local do evento"
+                           Text="{Binding Local}"
+                           BackgroundColor="White"
+                           HeightRequest="45" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Custo por Participante -->
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Custo por Participante" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry Placeholder="Digite o valor por participante em R$"
+                           Keyboard="Numeric"
+                           Text="{Binding CustoPorParticipante}"
+                           BackgroundColor="White"
+                           HeightRequest="45" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botões em Grid -->
+            <Grid ColumnDefinitions="*,*" Margin="0,10,0,0" ColumnSpacing="10">
+                <Button Text="Cancelar"
+                        BackgroundColor="DarkRed"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Clicked="OnCancelarClicked"
+                        Grid.Column="0" />
+
+                <Button Text="Cadastrar"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Clicked="OnCadastrarClicked"
+                        Grid.Column="1" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
