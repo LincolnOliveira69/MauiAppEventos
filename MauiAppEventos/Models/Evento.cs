@@ -11,7 +11,14 @@ namespace MauiAppEventos.Models
         public string Local { get; set; }
         public string CustoPorParticipante { get; set; } // Alterado de double para string
 
-        public int DuracaoDias => (DataTermino - DataInicio).Days + 1;
+        public int DuracaoDias
+        {
+            get
+            {
+                TimeSpan intervalo = DataTermino - DataInicio;
+                return intervalo.Days + 1;
+            }
+        }
 
         public string SufixoDuracao => DuracaoDias == 1 ? "dia" : "dias";
 
